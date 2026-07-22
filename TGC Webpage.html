@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Gaming Company</title>
+    <style>
+        :root {
+            /* Applied the background color from image_2934bf.png */
+            --bg-color: #0A1128; 
+            --card-bg: #151e3c;
+            --accent-color: #fca311; /* Changed to a complementary warm accent */
+            --text-color: #ffffff;
+            --text-muted: #a5b0c9;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: var(--bg-color); color: var(--text-color); line-height: 1.6; }
+        header { background: rgba(10, 17, 40, 0.95); padding: 20px 50px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #233054; }
+        
+        /* Logo Styles */
+        .logo { display: inline-block; text-decoration: none; }
+        .logo img { max-height: 40px; width: auto; display: block; }
+        
+        nav a { color: var(--text-color); margin-left: 20px; text-decoration: none; font-weight: 500; transition: 0.3s; }
+        nav a:hover { color: var(--accent-color); }
+        
+        .hero { padding: 100px 50px; text-align: center; background: radial-gradient(circle, rgba(252, 163, 17, 0.1) 0%, rgba(10, 17, 40, 1) 70%); }
+        .hero h1 { font-size: 3rem; margin-bottom: 20px; font-weight: bold; }
+        .hero p { font-size: 1.2rem; color: var(--text-muted); max-width: 800px; margin: 0 auto 30px; }
+        .btn { background-color: var(--accent-color); color: #000; padding: 12px 30px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block; transition: 0.2s; }
+        .btn:hover { opacity: 0.9; }
+        
+        .section { padding: 80px 50px; max-width: 1200px; margin: 0 auto; }
+        .section-title { font-size: 2rem; margin-bottom: 40px; text-align: center; border-bottom: 2px solid var(--accent-color); display: inline-block; padding-bottom: 5px; }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .card { background-color: var(--card-bg); padding: 25px; border-radius: 8px; border: 1px solid #233054; }
+        .card h3 { color: var(--accent-color); margin-bottom: 10px; }
+        
+        footer { text-align: center; padding: 30px; border-top: 1px solid #233054; color: var(--text-muted); }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">
+            <!-- Replace "YOUR_LOGO_URL_HERE.png" with your actual image file name or URL -->
+            <img src="YOUR_LOGO_URL_HERE.png" alt="The Gaming Company Logo">
+        </a>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#clients">Partners</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Uniting Gaming & Esports with Brands Globally</h1>
+        <p>The Gaming Company is the leading esports marketing group in Southeast Asia, creating end-to-end gaming ecosystems for global advertisers.</p>
+        <a href="#contact" class="btn">Get In Touch</a>
+    </section>
+
+    <section id="about" class="section">
+        <div style="text-align: center;">
+            <h2 class="section-title">Who We Are</h2>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <h3>Our Vision</h3>
+                <p>Unite the world of gaming and esports with brands globally through high-impact marketing and world-class activations.</p>
+            </div>
+            <div class="card">
+                <h3>Our Mission</h3>
+                <p>To build the ultimate ecosystem for advertisers in the world of gaming & esports across Southeast Asia and beyond.</p>
+            </div>
+            <div class="card">
+                <h3>Market Leader</h3>
+                <p>Activated campaigns across 19+ countries with over 120 million unique viewers and 400+ esports events executed.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="section">
+        <div style="text-align: center;">
+            <h2 class="section-title">Our Capability Ecosystem</h2>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <h3>360° Esports Agency</h3>
+                <p>End-to-end marketing strategy, brand integration, PR, social media, and community development.</p>
+            </div>
+            <div class="card">
+                <h3>Broadcast & Production</h3>
+                <p>3 fully equipped production studios with virtual sets, AR tracking, and multi-language streams.</p>
+            </div>
+            <div class="card">
+                <h3>Esports Facilities</h3>
+                <p>Developers of Southeast Asia’s largest esports venue space (EBN Esports City) spanning 65,000 sq ft.</p>
+            </div>
+            <div class="card">
+                <h3>Game Operations</h3>
+                <p>International tournament execution, player management, proprietary league software, and marshalling.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section" style="text-align: center;">
+        <h2 class="section-title">Work With Us</h2>
+        <p style="margin-bottom: 20px; color: var(--text-muted);">Ready to enter the esports space? Let's connect.</p>
+        <p>Email: <strong>project@thegamingcompany.co</strong></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 The Gaming Company. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
