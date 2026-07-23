@@ -3,112 +3,541 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Gaming Company</title>
+    <title>The Gaming Company | Premier Esports Agency</title>
+    <!-- Google Fonts for High-Tech Esports Aesthetic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Rajdhani:wght@500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Applied the background color from image_2934bf.png */
-            --bg-color: #0A1128; 
-            --card-bg: #151e3c;
-            --accent-color: #fca311; /* Changed to a complementary warm accent */
+            /* Strict Color Palette */
+            --bg-color: #0A1128;
+            --accent-color: #fca311;
+            
+            /* Modern Theme System */
+            --bg-secondary: #0f1938;
+            --accent-glow: rgba(252, 163, 17, 0.4);
+            --accent-glow-subtle: rgba(252, 163, 17, 0.15);
             --text-color: #ffffff;
-            --text-muted: #a5b0c9;
+            --text-muted: #94a3b8;
+            
+            /* Glassmorphism Variables */
+            --glass-bg: rgba(15, 25, 56, 0.55);
+            --glass-border: rgba(252, 163, 17, 0.18);
+            --glass-border-hover: rgba(252, 163, 17, 0.7);
+            --glass-blur: blur(16px);
+            
+            --font-heading: 'Rajdhani', sans-serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: var(--bg-color); color: var(--text-color); line-height: 1.6; }
-        header { background: rgba(10, 17, 40, 0.95); padding: 20px 50px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #233054; }
-        
-        /* Logo Styles */
-        .logo { display: inline-block; text-decoration: none; }
-        .logo img { max-height: 95px; width: auto; display: block; }
-        
-        nav a { color: var(--text-color); margin-left: 20px; text-decoration: none; font-weight: 500; transition: 0.3s; }
-        nav a:hover { color: var(--accent-color); }
-        
-        .hero { padding: 100px 50px; text-align: center; background: radial-gradient(circle, rgba(252, 163, 17, 0.1) 0%, rgba(10, 17, 40, 1) 70%); }
-        .hero h1 { font-size: 3rem; margin-bottom: 20px; font-weight: bold; }
-        .hero p { font-size: 1.2rem; color: var(--text-muted); max-width: 800px; margin: 0 auto 30px; }
-        .btn { background-color: var(--accent-color); color: #000; padding: 12px 30px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block; transition: 0.2s; }
-        .btn:hover { opacity: 0.9; }
-        
-        .section { padding: 80px 50px; max-width: 1200px; margin: 0 auto; }
-        .section-title { font-size: 2rem; margin-bottom: 40px; text-align: center; border-bottom: 2px solid var(--accent-color); display: inline-block; padding-bottom: 5px; }
-        
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .card { background-color: var(--card-bg); padding: 25px; border-radius: 8px; border: 1px solid #233054; }
-        .card h3 { color: var(--accent-color); margin-bottom: 10px; }
-        
-        footer { text-align: center; padding: 30px; border-top: 1px solid #233054; color: var(--text-muted); }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 20%, rgba(252, 163, 17, 0.04) 0%, transparent 40%),
+                radial-gradient(circle at 85% 60%, rgba(252, 163, 17, 0.04) 0%, transparent 40%);
+        }
+
+        /* Header & Navigation */
+        header {
+            background: rgba(10, 17, 40, 0.85);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(252, 163, 17, 0.15);
+        }
+
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.02);
+        }
+
+        .logo img {
+            max-height: 90px;
+            width: auto;
+            display: block;
+            filter: drop-shadow(0 0 12px rgba(252, 163, 17, 0.2));
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            box-shadow: 0 0 8px var(--accent-color);
+            transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section formatted to accept full-width background image */
+        .hero {
+            position: relative;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 20px;
+            background-image: 
+                linear-gradient(180deg, rgba(10, 17, 40, 0.65) 0%, rgba(10, 17, 40, 0.75) 60%, #0A1128 100%),
+                url('hero-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            overflow: hidden;
+        }
+
+        /* High-tech Grid Lines Overlay */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px),
+                        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(252, 163, 17, 0.1);
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 6px 18px;
+            border-radius: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 0 15px var(--accent-glow-subtle);
+        }
+
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: 3.8rem;
+            font-weight: 800;
+            line-height: 1.1;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+            background: linear-gradient(180deg, #ffffff 40%, #a5b0c9 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .hero h1 span {
+            color: var(--accent-color);
+            -webkit-text-fill-color: var(--accent-color);
+            text-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 750px;
+            margin: 0 auto 40px;
+            font-weight: 400;
+        }
+
+        /* High-Tech Esports Button */
+        .btn {
+            position: relative;
+            background: var(--accent-color);
+            color: #0A1128;
+            padding: 16px 42px;
+            font-family: var(--font-heading);
+            font-size: 1.15rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+            display: inline-block;
+            clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 0 25px var(--accent-glow);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #ffbe53;
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 0 40px rgba(252, 163, 17, 0.7);
+            color: #000000;
+        }
+
+        /* Sections Structure */
+        .section {
+            padding: 100px 40px;
+            max-width: 1280px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 2.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            display: inline-block;
+            position: relative;
+            padding-bottom: 12px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent-color);
+            box-shadow: 0 0 12px var(--accent-color);
+            border-radius: 2px;
+        }
+
+        /* Grid Layout */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        /* Services Grid Layout to center 4th card under Broadcast & Production */
+        @media (min-width: 992px) {
+            #services .grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            #services .grid .card:last-child {
+                grid-column: 2;
+            }
+        }
+
+        /* Glassmorphism Cards with Advanced Hover Animations */
+        .card {
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            padding: 35px 30px;
+            border-radius: 16px;
+            border: 1px solid var(--glass-border);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Top Accent Indicator on Card */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+            opacity: 0.3;
+            transition: opacity 0.4s ease, height 0.4s ease;
+        }
+
+        /* Ambient Glow Effect */
+        .card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(252, 163, 17, 0.08) 0%, transparent 60%);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+        .card-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        /* Card Hover State */
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--glass-border-hover);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6),
+                        0 0 30px var(--accent-glow-subtle);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+            height: 4px;
+        }
+
+        .card:hover::after {
+            opacity: 1;
+        }
+
+        /* Contact Section Specific Styling */
+        .contact-box {
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 50px 40px;
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+        }
+
+        .contact-email {
+            display: inline-block;
+            margin-top: 20px;
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            background: rgba(252, 163, 17, 0.1);
+            padding: 12px 28px;
+            border-radius: 10px;
+            border: 1px dashed rgba(252, 163, 17, 0.4);
+            letter-spacing: 1px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid rgba(252, 163, 17, 0.15);
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            background: rgba(10, 17, 40, 0.95);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            header {
+                padding: 15px 25px;
+                flex-direction: column;
+                gap: 15px;
+            }
+            nav {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .hero {
+                padding: 80px 20px;
+                min-height: 70vh;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .section {
+                padding: 60px 20px;
+            }
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
     </style>
 </head>
 <body>
 
     <header>
         <a href="#" class="logo">
-            <!-- Replace "YOUR_LOGO_URL_HERE.png" with your actual image file name or URL -->
             <img src="TGC_LOGO_WHITE.png" alt="The Gaming Company Logo">
         </a>
         <nav>
             <a href="#about">About</a>
             <a href="#services">Services</a>
-            <a href="#clients">Partners</a>
             <a href="#contact">Contact</a>
         </nav>
     </header>
 
     <section class="hero">
-        <h1>Uniting Gaming & Esports with Brands Globally</h1>
-        <p>The Gaming Company is the leading esports marketing group in Southeast Asia, creating end-to-end gaming ecosystems for global advertisers.</p>
-        <a href="#contact" class="btn">Get In Touch</a>
+        <div class="hero-content">
+            <span class="hero-badge">Southeast Asia's Premier Esports Agency</span>
+            <h1>Uniting Gaming & Esports With <span>Brands Globally</span></h1>
+            <p>The Gaming Company creates end-to-end gaming ecosystems, world-class activations, and high-impact marketing for global advertisers.</p>
+            <a href="#contact" class="btn">Get In Touch</a>
+        </div>
     </section>
 
     <section id="about" class="section">
-        <div style="text-align: center;">
+        <div class="section-header">
             <h2 class="section-title">Who We Are</h2>
         </div>
         <div class="grid">
             <div class="card">
-                <h3>Our Vision</h3>
-                <p>Unite the world of gaming and esports with brands globally through high-impact marketing and world-class activations.</p>
+                <div class="card-content">
+                    <h3>Our Vision</h3>
+                    <p>Unite the world of gaming and esports with brands globally through high-impact marketing and world-class activations.</p>
+                </div>
             </div>
             <div class="card">
-                <h3>Our Mission</h3>
-                <p>To build the ultimate ecosystem for advertisers in the world of gaming & esports across Southeast Asia and beyond.</p>
+                <div class="card-content">
+                    <h3>Our Mission</h3>
+                    <p>To build the ultimate ecosystem for advertisers in the world of gaming & esports across Southeast Asia and beyond.</p>
+                </div>
             </div>
             <div class="card">
-                <h3>Market Leader</h3>
-                <p>Activated campaigns across 19+ countries with over 120 million unique viewers and 400+ esports events executed.</p>
+                <div class="card-content">
+                    <h3>Market Leader</h3>
+                    <p>Activated campaigns across 19+ countries with over 120 million unique viewers and 400+ esports events executed.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <section id="services" class="section">
-        <div style="text-align: center;">
+        <div class="section-header">
             <h2 class="section-title">Our Capability Ecosystem</h2>
         </div>
         <div class="grid">
             <div class="card">
-                <h3>360° Esports Agency</h3>
-                <p>End-to-end marketing strategy, brand integration, PR, social media, and community development.</p>
+                <div class="card-content">
+                    <h3>360° Esports Agency</h3>
+                    <p>End-to-end marketing strategy, brand integration, PR, social media, and community development.</p>
+                </div>
             </div>
             <div class="card">
-                <h3>Broadcast & Production</h3>
-                <p>3 fully equipped production studios with virtual sets, AR tracking, and multi-language streams.</p>
+                <div class="card-content">
+                    <h3>Broadcast & Production</h3>
+                    <p>3 fully equipped production studios with virtual sets, AR tracking, and multi-language streams.</p>
+                </div>
             </div>
             <div class="card">
-                <h3>Esports Facilities</h3>
-                <p>Developers of Southeast Asia’s largest esports venue space (EBN Esports City) spanning 65,000 sq ft.</p>
+                <div class="card-content">
+                    <h3>Esports Facilities</h3>
+                    <p>Developers of Southeast Asia’s largest esports venue space (EBN Esports City) spanning 65,000 sq ft.</p>
+                </div>
             </div>
             <div class="card">
-                <h3>Game Operations</h3>
-                <p>International tournament execution, player management, proprietary league software, and marshalling.</p>
+                <div class="card-content">
+                    <h3>Game Operations</h3>
+                    <p>International tournament execution, player management, proprietary league software, and marshalling.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="section" style="text-align: center;">
-        <h2 class="section-title">Work With Us</h2>
-        <p style="margin-bottom: 20px; color: var(--text-muted);">Ready to enter the esports space? Let's connect.</p>
-        <p>Email: <strong>project@thegamingcompany.co</strong></p>
+    <section id="contact" class="section">
+        <div class="contact-box">
+            <h2 class="section-title" style="margin-bottom: 20px;">Work With Us</h2>
+            <p style="color: var(--text-muted); font-size: 1.1rem;">Ready to enter the esports space? Let's connect.</p>
+            <div class="contact-email">
+                project@thegamingcompany.co
+            </div>
+        </div>
     </section>
 
     <footer>
