@@ -422,6 +422,124 @@
             background: rgba(10, 17, 40, 0.95);
         }
 
+        /* Accolades & Achievements Consolidated Layout */
+        .accolades-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .award-card {
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 28px 25px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .award-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+            opacity: 0.3;
+            transition: opacity 0.35s ease, height 0.35s ease;
+        }
+
+        .award-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--glass-border-hover);
+            box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.6), 0 0 25px var(--accent-glow-subtle);
+        }
+
+        .award-card:hover::before {
+            opacity: 1;
+            height: 4px;
+        }
+
+        .award-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .year-pill {
+            background: rgba(252, 163, 17, 0.12);
+            border: 1px solid rgba(252, 163, 17, 0.4);
+            color: var(--accent-color);
+            font-family: var(--font-heading);
+            font-size: 0.95rem;
+            font-weight: 800;
+            padding: 3px 12px;
+            border-radius: 20px;
+            letter-spacing: 1px;
+        }
+
+        .award-title {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .award-desc {
+            color: var(--text-muted);
+            font-size: 0.98rem;
+            line-height: 1.55;
+        }
+
+        .badge-gold {
+            background: linear-gradient(135deg, #ffd700 0%, #ffaa00 100%);
+            color: #0A1128;
+            font-family: var(--font-heading);
+            font-size: 0.8rem;
+            font-weight: 800;
+            padding: 3px 10px;
+            border-radius: 4px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 0 12px rgba(255, 215, 0, 0.4);
+        }
+
+        .badge-bronze {
+            background: linear-gradient(135deg, #cd7f32 0%, #a0522d 100%);
+            color: #ffffff;
+            font-family: var(--font-heading);
+            font-size: 0.8rem;
+            font-weight: 800;
+            padding: 3px 10px;
+            border-radius: 4px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 0 10px rgba(205, 127, 50, 0.3);
+        }
+
+        .badge-winner {
+            background: rgba(252, 163, 17, 0.12);
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            font-family: var(--font-heading);
+            font-size: 0.78rem;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
         /* Responsive Design */
         @media (max-width: 900px) {
             header {
@@ -459,6 +577,7 @@
         <nav>
             <a href="#about">About</a>
             <a href="#services">Services</a>
+            <a href="#achievements">Achievements</a>
             <a href="#contact">Contact</a>
         </nav>
     </header>
@@ -525,6 +644,129 @@
                 <div class="card-content">
                     <h3>Game Operations</h3>
                     <p>International tournament execution, player management, proprietary league software, and marshalling.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="achievements" class="section">
+        <div class="section-header">
+            <h2 class="section-title">Our Achievements</h2>
+            <p style="color: var(--text-muted); font-size: 1.1rem; margin-top: 10px;">Recognized globally for excellence in gaming, esports marketing, & activations</p>
+        </div>
+
+        <div class="accolades-grid">
+            <!-- 2025 -->
+            <div class="award-card">
+                <div class="award-card-header">
+                    <span class="year-pill">2025</span>
+                    <span class="badge-winner">Most Creative</span>
+                </div>
+                <div>
+                    <h3 class="award-title">The MARKies</h3>
+                    <p class="award-desc">Social Commerce: Goodday Legitimizing Esports in Malaysia</p>
+                </div>
+            </div>
+
+            <div class="award-card">
+                <div class="award-card-header">
+                    <span class="year-pill">2025</span>
+                    <span class="badge-winner">Most Effective Use</span>
+                </div>
+                <div>
+                    <h3 class="award-title">The MARKies</h3>
+                    <p class="award-desc">Content: Goodday, Malaysia's First Ever Senior Esports Team</p>
+                </div>
+            </div>
+
+            <!-- 2024 -->
+            <div class="award-card">
+                <div class="award-card-header">
+                    <span class="year-pill">2024</span>
+                    <span class="badge-gold">GOLD</span>
+                </div>
+                <div>
+                    <h3 class="award-title">The MARKies</h3>
+                    <p class="award-desc">Most Effective Use – Specific Audience: Samsung Odyssey Cup – Southeast Asia Influencer Invitationals</p>
+                </div>
+            </div>
+
+            <div class="award-card">
+                <div class="award-card-header">
+                    <span class="year-pill">2024</span>
+                    <span class="badge-bronze">BRONZE</span>
+                </div>
+                <div>
+                    <h3 class="award-title">Excellence in Gaming</h3>
+                    <p class="award-desc">Samsung Odyssey Cup – Southeast Asia Influencer Invitationals</p>
+                </div>
+            </div>
+
+            <!-- 2022 -->
+            <div class="award-card">
+                <div class="award-card-header">
+                    <span class="year-pill">2022</span>
+                    <span class="badge-bronze">BRONZE</span>
+                </div>
+                <div>
+                    <h3 class="award-title">The MARKies</h3>
+                    <p class="award-desc">Most Creative – Esports Marketing: GalAxie Cup 2021</p>
+                </div>
+            </div>
+
+            <div class="award-card">
+                <div class="award-card-header">
+                    <span class="year-pill">2022</span>
+                    <span class="badge-winner">Individual Honors</span>
+                </div>
+                <div>
+                    <h3 class="award-title">The MARKies Honors</h3>
+                    <p class="award-desc">Best Account Manager & Best Marketing Strategist</p>
+                </div>
+            </div>
+
+            <div class="award-card">
+                <div class="award-card-header">
+                    <span class="year-pill">2022</span>
+                    <span class="badge-winner">Emerging SME</span>
+                </div>
+                <div>
+                    <h3 class="award-title">Golden Bull Award</h3>
+                    <p class="award-desc">Recognized as Southeast Asia's Emerging SME</p>
+                </div>
+            </div>
+
+            <div class="award-card">
+                <div class="award-card-header">
+                    <span class="year-pill">2022</span>
+                    <span class="badge-winner">Strategy</span>
+                </div>
+                <div>
+                    <h3 class="award-title">The Loyalty & Engagement Awards</h3>
+                    <p class="award-desc">Best Engagement Strategy B2B – Campaign: Ultimate Royales Presented by Twitch</p>
+                </div>
+            </div>
+
+            <div class="award-card">
+                <div class="award-card-header">
+                    <span class="year-pill">2022</span>
+                    <span class="badge-winner">Sports Partner</span>
+                </div>
+                <div>
+                    <h3 class="award-title">IIUM Mustangs Sports Award IMSA</h3>
+                    <p class="award-desc">Sports Partner Award</p>
+                </div>
+            </div>
+
+            <!-- 2019 -->
+            <div class="award-card">
+                <div class="award-card-header">
+                    <span class="year-pill">2019</span>
+                    <span class="badge-gold">GOLD</span>
+                </div>
+                <div>
+                    <h3 class="award-title">Marketing Excellence Awards</h3>
+                    <p class="award-desc">Marketing Magazine's Excellence in Sports / Esports Marketing</p>
                 </div>
             </div>
         </div>
